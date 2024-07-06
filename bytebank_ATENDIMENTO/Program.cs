@@ -1,6 +1,7 @@
 ﻿using bytebank.Modelos.Conta;
 using bytebank_ATENDIMENTO.bytebank.Util;
 using System.Collections;
+using System.Security.AccessControl;
 
 Console.WriteLine("Boas Vindas ao ByteBank, Atendimento.");
 
@@ -159,9 +160,14 @@ void TestaArrayConta()
 #endregion
 
 
-ArrayList lista = new ArrayList();
+List<ContaCorrente> lista = new List<ContaCorrente>()
+{
+    new ContaCorrente("123456-X", 95) { Saldo = 100 },
+    new ContaCorrente("951258-X", 95) { Saldo = 200 },
+    new ContaCorrente("987321-W", 94) { Saldo = 60 }
+};
 
-atendimentoCliente();
+//atendimentoCliente();
 
 void atendimentoCliente()
 {
@@ -213,6 +219,7 @@ void listar()
         Console.WriteLine("-----------------");
         Console.WriteLine("----Dados da conta --------");
         Console.WriteLine("numero conta:" + item.Conta);
+        Console.WriteLine("saldo:" + item.Saldo);
         Console.WriteLine("titular:" + item.Titular.Nome);
         Console.WriteLine("cpf:" + item.Titular.Cpf);
         Console.WriteLine("profissao do:" + item.Titular.Profissao);
@@ -251,7 +258,24 @@ void cadastrar()
     conta.Titular.Profissao = Console.ReadLine();
 
     lista.Add(conta);
+
     Console.Write("dados cadastrados");
     Console.ReadKey();
 
+}
+
+generica<int> teste = new generica<int>();
+
+teste.mostrarMensagem(10);
+
+generica<string> teste2 = new generica<string>();
+
+teste2.mostrarMensagem("ola");
+
+public class generica<T>
+{
+    public void mostrarMensagem(T t)
+    {
+        Console.WriteLine($"Exibindo {t}");
+    }
 }
