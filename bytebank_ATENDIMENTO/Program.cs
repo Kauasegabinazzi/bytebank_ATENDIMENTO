@@ -167,6 +167,47 @@ List<ContaCorrente> lista = new List<ContaCorrente>()
     new ContaCorrente("987321-W", 94) { Saldo = 60 }
 };
 
+List<ContaCorrente> listaDeContas2 = new List<ContaCorrente>()
+{
+    new ContaCorrente("5679787-A", 874),
+    new ContaCorrente("4456668-B", 874),
+    new ContaCorrente("7781438-C", 874)
+};
+
+List<ContaCorrente> listaDeContas3 = new List<ContaCorrente>()
+{
+    new ContaCorrente("5679787-E", 951),
+    new ContaCorrente("4456668-F", 321),
+    new ContaCorrente("7781438-G", 719)
+};
+
+listaDeContas2.AddRange(listaDeContas3);
+listaDeContas2.Reverse();
+
+for (int i = 0; i < listaDeContas2.Count; i++)
+{
+    Console.WriteLine($"Indice[{i}] = Conta [{listaDeContas2[i].Conta}]");
+}
+
+Console.WriteLine("\n\n");
+
+var range = listaDeContas3.GetRange(0, 1);
+
+for (int i = 0; i < range.Count; i++)
+{
+    Console.WriteLine($"Indice[{i}] = Conta [{range[i].Conta}]");
+}
+
+Console.WriteLine("\n\n");
+
+
+listaDeContas3.Clear();
+
+for (int i = 0; i < listaDeContas3.Count; i++)
+{
+    Console.WriteLine($"Indice[{i}] = Conta [{listaDeContas3[i].Conta}]");
+}
+
 //atendimentoCliente();
 
 void atendimentoCliente()
@@ -264,18 +305,20 @@ void cadastrar()
 
 }
 
-generica<int> teste = new generica<int>();
 
-teste.mostrarMensagem(10);
 
-generica<string> teste2 = new generica<string>();
+//generica<int> teste = new generica<int>();
 
-teste2.mostrarMensagem("ola");
+//teste.mostrarMensagem(10);
 
-public class generica<T>
-{
-    public void mostrarMensagem(T t)
-    {
-        Console.WriteLine($"Exibindo {t}");
-    }
-}
+//generica<string> teste2 = new generica<string>();
+
+//teste2.mostrarMensagem("ola");
+
+//public class generica<T>
+//{ 
+//    public void mostrarMensagem(T t)
+//    {
+//        Console.WriteLine($"Exibindo {t}");
+//    }
+//}
