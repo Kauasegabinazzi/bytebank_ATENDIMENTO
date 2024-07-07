@@ -306,7 +306,6 @@ void cadastrar()
 }
 
 
-
 //generica<int> teste = new generica<int>();
 
 //teste.mostrarMensagem(10);
@@ -323,33 +322,88 @@ void cadastrar()
 //    }
 //}
 
-List<string> nomesDosEscolhidos = new List<string>()
-            {
-                "Bruce Wayne",
-                "Carlos Vilagran",
-                "Richard Grayson",
-                "Bob Kane",
-                "Will Farrel",
-                "Lois Lane",
-                "General Welling",
-                "Perla Letícia",
-                "Uxas",
-                "Diana Prince",
-                "Elisabeth Romanova",
-                "Anakin Wayne"
-            };
+//List<string> nomesDosEscolhidos = new List<string>()
+//            {
+//                "Bruce Wayne",
+//                "Carlos Vilagran",
+//                "Richard Grayson",
+//                "Bob Kane",
+//                "Will Farrel",
+//                "Lois Lane",
+//                "General Welling",
+//                "Perla Letícia",
+//                "Uxas",
+//                "Diana Prince",
+//                "Elisabeth Romanova",
+//                "Anakin Wayne"
+//            };
 
-foreach (string current in nomesDosEscolhidos)
+//foreach (string current in nomesDosEscolhidos)
+//{
+//    if (current.Equals("Anakin Wayne"))
+//    {
+//        Console.WriteLine($"vc encontrou");
+//    }
+//}
+
+
+//VerificaNomes(nomesDosEscolhidos, "Elisabeth Romanova");
+//bool VerificaNomes(List<string> nomesDosEscolhidos, string escolhido)
+//{
+//    return nomesDosEscolhidos.Contains(escolhido);
+//}
+
+SortedList<int, string> times = new SortedList<int, string>();
+times.Add(0, "Flamengo");
+times.Add(1, "Santos");
+times.Add(2, "Juventus");
+
+foreach (var item in times.Values)
 {
-    if (current.Equals("Anakin Wayne"))
-    {
-        Console.WriteLine($"vc encontrou");
-    }
+    Console.WriteLine(item);
 }
 
+Console.WriteLine("\n\n");
 
-VerificaNomes(nomesDosEscolhidos, "Elisabeth Romanova");
-bool VerificaNomes(List<string> nomesDosEscolhidos, string escolhido)
+Stack<string> minhlaPilhaDeLivros = new Stack<string>();
+minhlaPilhaDeLivros.Push("Harry Porter e a Ordem da Fênix");
+minhlaPilhaDeLivros.Push("A Guerra do Velho.");
+minhlaPilhaDeLivros.Push("Protocolo Bluehand");
+minhlaPilhaDeLivros.Push("Crise nas Infinitas Terras.");
+
+Console.WriteLine(minhlaPilhaDeLivros.Peek()); // Retorna o elemento do topo.
+Console.WriteLine(minhlaPilhaDeLivros.Pop()); //Remove o elemento do topo
+
+foreach (string item in minhlaPilhaDeLivros)
 {
-    return nomesDosEscolhidos.Contains(escolhido);
+    Console.WriteLine(item);
+}
+
+Console.WriteLine("\n\n");
+
+Queue<string> filaAtenndimento = new Queue<string>();
+filaAtenndimento.Enqueue("André Silva");
+filaAtenndimento.Enqueue("Lou Ferrigno");
+filaAtenndimento.Enqueue("Gal Gadot");
+
+filaAtenndimento.Dequeue(); //Remove o primeiro elemento da fila.
+
+foreach (string item in filaAtenndimento)
+{
+    Console.WriteLine(item);
+}
+
+Console.WriteLine("\n\n");
+
+HashSet<int> _numeros = new HashSet<int>();
+_numeros.Add(0);
+_numeros.Add(1);
+_numeros.Add(1);
+_numeros.Add(1);
+
+Console.WriteLine(_numeros.Count);
+
+foreach (var item in _numeros)
+{
+    Console.WriteLine(item);
 }
