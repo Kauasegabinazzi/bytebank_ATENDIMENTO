@@ -181,32 +181,32 @@ List<ContaCorrente> listaDeContas3 = new List<ContaCorrente>()
     new ContaCorrente("7781438-G", 719)
 };
 
-listaDeContas2.AddRange(listaDeContas3);
-listaDeContas2.Reverse();
+//listaDeContas2.AddRange(listaDeContas3);
+//listaDeContas2.Reverse();
 
-for (int i = 0; i < listaDeContas2.Count; i++)
-{
-    Console.WriteLine($"Indice[{i}] = Conta [{listaDeContas2[i].Conta}]");
-}
+//for (int i = 0; i < listaDeContas2.Count; i++)
+//{
+//    Console.WriteLine($"Indice[{i}] = Conta [{listaDeContas2[i].Conta}]");
+//}
 
-Console.WriteLine("\n\n");
+//Console.WriteLine("\n\n");
 
-var range = listaDeContas3.GetRange(0, 1);
+//var range = listaDeContas3.GetRange(0, 1);
 
-for (int i = 0; i < range.Count; i++)
-{
-    Console.WriteLine($"Indice[{i}] = Conta [{range[i].Conta}]");
-}
+//for (int i = 0; i < range.Count; i++)
+//{
+//    Console.WriteLine($"Indice[{i}] = Conta [{range[i].Conta}]");
+//}
 
-Console.WriteLine("\n\n");
+//Console.WriteLine("\n\n");
 
 
-listaDeContas3.Clear();
+//listaDeContas3.Clear();
 
-for (int i = 0; i < listaDeContas3.Count; i++)
-{
-    Console.WriteLine($"Indice[{i}] = Conta [{listaDeContas3[i].Conta}]");
-}
+//for (int i = 0; i < listaDeContas3.Count; i++)
+//{
+//    Console.WriteLine($"Indice[{i}] = Conta [{listaDeContas3[i].Conta}]");
+//}
 
 //atendimentoCliente();
 
@@ -322,3 +322,34 @@ void cadastrar()
 //        Console.WriteLine($"Exibindo {t}");
 //    }
 //}
+
+List<string> nomesDosEscolhidos = new List<string>()
+            {
+                "Bruce Wayne",
+                "Carlos Vilagran",
+                "Richard Grayson",
+                "Bob Kane",
+                "Will Farrel",
+                "Lois Lane",
+                "General Welling",
+                "Perla Letícia",
+                "Uxas",
+                "Diana Prince",
+                "Elisabeth Romanova",
+                "Anakin Wayne"
+            };
+
+foreach (string current in nomesDosEscolhidos)
+{
+    if (current.Equals("Anakin Wayne"))
+    {
+        Console.WriteLine($"vc encontrou");
+    }
+}
+
+
+VerificaNomes(nomesDosEscolhidos, "Elisabeth Romanova");
+bool VerificaNomes(List<string> nomesDosEscolhidos, string escolhido)
+{
+    return nomesDosEscolhidos.Contains(escolhido);
+}
