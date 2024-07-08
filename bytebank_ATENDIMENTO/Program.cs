@@ -8,9 +8,9 @@ Console.WriteLine("Boas Vindas ao ByteBank, Atendimento.");
 
 List<ContaCorrente> lista = new List<ContaCorrente>()
 {
-    new ContaCorrente("123456-X", 95) { Saldo = 100 },
-    new ContaCorrente("951258-X", 95) { Saldo = 200 },
-    new ContaCorrente("987321-W", 94) { Saldo = 60 }
+    new ContaCorrente("123456-X", 95){Saldo=100,Titular = new Cliente{Cpf="11111",Nome ="Henrique"}},
+    new ContaCorrente("951258-X", 95){Saldo=200,Titular = new Cliente{Cpf="22222",Nome ="Pedro"}},
+    new ContaCorrente("987321-W", 94){Saldo=60,Titular = new Cliente{Cpf="33333",Nome ="Marisa"}}
 };
 
 void atendimentoCliente()
@@ -57,6 +57,9 @@ void atendimentoCliente()
                 case '4':
                     ordenar();
                     break;
+                case '5':
+                    pesquisar();
+                    break;
                 default:
                     Console.WriteLine("opção não implementada");
                     break;
@@ -67,6 +70,71 @@ void atendimentoCliente()
 
         Console.WriteLine($"{ex.Message}");
     }
+}
+
+void pesquisar()
+{
+    Console.Clear();
+    Console.WriteLine("-----------------");
+    Console.WriteLine("------Pesquisar Contas --------");
+    Console.WriteLine("-----------------");
+    Console.WriteLine("\n");
+    Console.WriteLine("Deseja pesquisar 1 numero da conta ou 2 cpf?");
+    switch (int.Parse(Console.ReadLine()))
+    {
+        case 1:
+            {
+                Console.WriteLine("informa o numero da conta:");
+                string numero = Console.ReadLine();
+                ContaCorrente consulta = ConsultaNumero(numero);
+                Console.WriteLine(consulta.ToString());
+                Console.ReadKey();
+                break;
+            }
+        case 2:
+            {
+                Console.WriteLine("informa o cpf da conta:");
+                string numero = Console.ReadLine();
+                ContaCorrente consulta = ConsultaCpf(numero);
+                Console.WriteLine(consulta.ToString());
+                Console.ReadKey();
+                break;
+            }
+        default:
+            {
+                Console.WriteLine("opção não implementada");
+                break;
+            }
+    }
+
+}
+
+ContaCorrente ConsultaCpf(string? numero)
+{
+    ContaCorrente conta = null;
+    for (int i = 0; i < lista.Count; i++)
+    {
+        if (lista[i].Titular.Cpf.Equals(numero))
+        {
+            conta = lista[i];
+        }
+    }
+
+    return conta;
+}
+
+ContaCorrente ConsultaNumero(string? numero)
+{
+    ContaCorrente conta = null;
+    for (int i = 0; i < lista.Count; i++)
+    {
+        if (lista[i].Conta.Equals(numero))
+        {
+            conta = lista[i];
+        }
+    }
+
+    return conta;
 }
 
 void ordenar()
