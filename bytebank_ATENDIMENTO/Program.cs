@@ -54,6 +54,9 @@ void atendimentoCliente()
                 case '3':
                     remover();
                     break;
+                case '4':
+                    ordenar();
+                    break;
                 default:
                     Console.WriteLine("opção não implementada");
                     break;
@@ -64,6 +67,13 @@ void atendimentoCliente()
 
         Console.WriteLine($"{ex.Message}");
     }
+}
+
+void ordenar()
+{
+    lista.Sort();
+    Console.WriteLine("lista ordenada");
+    Console.ReadKey();
 }
 
 void remover()
