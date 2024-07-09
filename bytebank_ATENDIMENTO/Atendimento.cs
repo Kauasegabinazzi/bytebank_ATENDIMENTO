@@ -271,13 +271,16 @@ namespace bytebank_ATENDIMENTO
             Console.WriteLine("\n");
             Console.WriteLine("----informe dados da conta-------");
 
-            Console.Write("Numero da conta:");
-            string numeroConta = Console.ReadLine();
+            //Console.Write("Numero da conta:");
+            //string numeroConta = Console.ReadLine();
 
             Console.Write("Numero da agencia:");
             int numeroAgencia = int.Parse(Console.ReadLine());
 
-            ContaCorrente conta = new ContaCorrente(numeroConta, numeroAgencia);
+            ContaCorrente conta = new ContaCorrente(numeroAgencia);
+
+            Console.Write($"Numero da conta nova: {conta.Conta} : ");
+            Console.WriteLine("\n");
 
             Console.Write("informe o saldo inicial:");
             conta.Saldo = double.Parse(Console.ReadLine());
