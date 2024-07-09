@@ -174,6 +174,12 @@ ContaCorrente ConsultaNumero(string? numero)
 
     //return conta;
 
+    var consulta =
+ (
+    from conta in lista
+    where conta.Conta.Equals(numero)
+    select conta).ToList();
+
     return lista.Where(conta => conta.Conta == numero).FirstOrDefault();
 }
 
