@@ -110,9 +110,10 @@
 
 			return $" === DADOS DA CONTA === \n" +
 				   $"Número da Conta : {this.Conta} \n" +
-				   $"Titular da Conta: {this.Titular.Nome} \n" +
+                    $"Número da agencia : {this.Numero_agencia} \n" +
+                   $"Titular da Conta: {this.Titular.Nome} \n" +
 				   $"CPF do Titular  : {this.Titular.Cpf} \n" +
-				   $"Profissão do Titular: { this.Titular.Profissao}";
+				   $"Profissão do Titular: { this.Titular.Profissao}\n\n";
 		}
 
         public int CompareTo(ContaCorrente? other)

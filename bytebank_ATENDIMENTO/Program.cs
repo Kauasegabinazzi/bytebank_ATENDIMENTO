@@ -79,7 +79,7 @@ void pesquisar()
     Console.WriteLine("------Pesquisar Contas --------");
     Console.WriteLine("-----------------");
     Console.WriteLine("\n");
-    Console.WriteLine("Deseja pesquisar 1 numero da conta ou 2 cpf?");
+    Console.WriteLine("Deseja pesquisar 1 numero da conta ou 2 cpf ou  3 numero da agencia?");
     switch (int.Parse(Console.ReadLine()))
     {
         case 1:
@@ -100,6 +100,15 @@ void pesquisar()
                 Console.ReadKey();
                 break;
             }
+        case 3:
+            {
+                Console.WriteLine("informa o numero da agencia:");
+                int numero = int.Parse(Console.ReadLine());
+                var consulta = consultaAgencia(numero);
+                exibListaDeContas(consulta);
+                Console.ReadKey();
+                break;
+            }
         default:
             {
                 Console.WriteLine("opção não implementada");
@@ -107,6 +116,32 @@ void pesquisar()
             }
     }
 
+}
+
+void exibListaDeContas(List<ContaCorrente> consulta)
+{
+    if (consulta == null)
+    {
+        Console.WriteLine("consulta nao retornou dados");
+    }
+    else
+    {
+        foreach (var item in consulta)
+        {
+            Console.WriteLine(item.ToString());
+        }
+    }
+}
+
+List<ContaCorrente> consultaAgencia(int numero)
+{
+    var consulta =
+     (
+        from conta in lista
+        where conta.Numero_agencia == numero
+        select conta).ToList();
+
+    return consulta;
 }
 
 ContaCorrente ConsultaCpf(string? numero)
