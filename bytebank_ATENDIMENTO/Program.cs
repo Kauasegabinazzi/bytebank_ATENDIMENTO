@@ -111,30 +111,35 @@ void pesquisar()
 
 ContaCorrente ConsultaCpf(string? numero)
 {
-    ContaCorrente conta = null;
-    for (int i = 0; i < lista.Count; i++)
-    {
-        if (lista[i].Titular.Cpf.Equals(numero))
-        {
-            conta = lista[i];
-        }
-    }
+    //ContaCorrente conta = null;
+    //for (int i = 0; i < lista.Count; i++)
+    //{
+    //    if (lista[i].Titular.Cpf.Equals(numero))
+    //    {
+    //        conta = lista[i];
+    //    }
+    //}
 
-    return conta;
+    //return conta;
+
+    return lista.Where(conta => conta.Titular.Cpf == numero).FirstOrDefault();
+
 }
 
 ContaCorrente ConsultaNumero(string? numero)
 {
-    ContaCorrente conta = null;
-    for (int i = 0; i < lista.Count; i++)
-    {
-        if (lista[i].Conta.Equals(numero))
-        {
-            conta = lista[i];
-        }
-    }
+    //ContaCorrente conta = null;
+    //for (int i = 0; i < lista.Count; i++)
+    //{
+    //    if (lista[i].Conta.Equals(numero))
+    //    {
+    //        conta = lista[i];
+    //    }
+    //}
 
-    return conta;
+    //return conta;
+
+    return lista.Where(conta => conta.Conta == numero).FirstOrDefault();
 }
 
 void ordenar()
@@ -193,13 +198,14 @@ void listar()
 
     foreach (ContaCorrente item in lista)
     {
-        Console.WriteLine("-----------------");
-        Console.WriteLine("----Dados da conta --------");
-        Console.WriteLine("numero conta:" + item.Conta);
-        Console.WriteLine("saldo:" + item.Saldo);
-        Console.WriteLine("titular:" + item.Titular.Nome);
-        Console.WriteLine("cpf:" + item.Titular.Cpf);
-        Console.WriteLine("profissao do:" + item.Titular.Profissao);
+        //Console.WriteLine("-----------------");
+        //Console.WriteLine("----Dados da conta --------");
+        //Console.WriteLine("numero conta:" + item.Conta);
+        //Console.WriteLine("saldo:" + item.Saldo);
+        //Console.WriteLine("titular:" + item.Titular.Nome);
+        //Console.WriteLine("cpf:" + item.Titular.Cpf);
+        //Console.WriteLine("profissao do:" + item.Titular.Profissao);
+        Console.WriteLine(item.ToString());
         Console.WriteLine("-----------------");
         Console.ReadKey();
     }
