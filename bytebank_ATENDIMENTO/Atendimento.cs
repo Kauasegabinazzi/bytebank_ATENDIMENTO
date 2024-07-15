@@ -1,10 +1,11 @@
 ﻿using bytebank.Modelos.Conta;
+using Newtonsoft.Json;
 
 namespace bytebank_ATENDIMENTO
 {
     internal class Atendimento
     {
-        #nullable disable
+#nullable disable
 
         private List<ContaCorrente> lista = new List<ContaCorrente>()
 {
@@ -29,7 +30,8 @@ namespace bytebank_ATENDIMENTO
                     Console.WriteLine("---3-remover lista---");
                     Console.WriteLine("---4-ordenar contas---");
                     Console.WriteLine("---5-pesquisar conta---");
-                    Console.WriteLine("---6-sair do sistema---");
+                    Console.WriteLine("---6-exportar contas---");
+                    Console.WriteLine("---7-sair do sistema---");
                     Console.WriteLine("-----------------");
                     Console.WriteLine("\n\n");
                     Console.WriteLine("digite a opção desejada:");
@@ -61,6 +63,9 @@ namespace bytebank_ATENDIMENTO
                             pesquisar();
                             break;
                         case '6':
+                            exportar();
+                            break;
+                        case '7':
                             encerrar();
                             break;
                         default:
@@ -76,9 +81,45 @@ namespace bytebank_ATENDIMENTO
             }
         }
 
+        private void exportar()
+        {
+            Console.Clear();
+            Console.WriteLine("-----------------");
+            Console.WriteLine("------exportar conta --------");
+            Console.WriteLine("-----------------");
+            Console.WriteLine("\n");
+            if (lista.Count <= 0)
+            {
+                Console.WriteLine("Não existe dados para exportar");
+                Console.ReadKey();
+            }
+            else
+            {
+                string json = JsonConvert.SerializeObject(lista, Formatting.Indented);
+
+                try
+                {
+                    FileStream file = new FileStream(@"c:\tmp\export\contas.json", FileMode.Create);
+
+                    using (StreamWriter strem = new StreamWriter(file))
+                    {
+                        strem.WriteLine(json);
+                    }
+                    Console.WriteLine("Arquivo salvo");
+                    Console.ReadKey();
+
+                }
+                catch (Exception ex)
+                {
+                    throw new ByteMyException(ex.Message);
+                    Console.ReadKey();
+                }
+            }
+        }
+
         private void encerrar()
         {
-           Console.WriteLine("encerrando");
+            Console.WriteLine("encerrando");
             Console.ReadKey();
         }
 
