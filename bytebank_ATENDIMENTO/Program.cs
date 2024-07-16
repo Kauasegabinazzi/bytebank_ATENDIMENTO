@@ -1,6 +1,7 @@
 ﻿using bytebank.Modelos.Conta;
 using bytebank_ATENDIMENTO;
 using bytebank_ATENDIMENTO.bytebank.Util;
+using byteBank_Modelos.bytebank.Modelos.ADM.Utilitario;
 
 Console.WriteLine("Boas Vindas ao ByteBank, Atendimento.");
 
