@@ -6,7 +6,7 @@ namespace bytebank.Modelos.ADM.Utilitario
     public class ParceiroComercial : IAutenticavel
     {
         public string Senha { get; set; }
-        public AutenticacaoUtil Autentificador { get; set; }
+        private AutenticacaoUtil Autentificador = new AutenticacaoUtil();
         public bool Autenticar(string senha)
         {
             return this.Autentificador.validarSenha(this.Senha, senha);
