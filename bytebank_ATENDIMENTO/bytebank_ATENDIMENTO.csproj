@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\source\repos\byteBank_gerador\byteBank_gerador\byteBank_gerador.csproj" />
     <ProjectReference Include="..\byteBank_Modelos\byteBank_Modelos.csproj" />
   </ItemGroup>
 

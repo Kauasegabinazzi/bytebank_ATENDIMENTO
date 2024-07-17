@@ -6,7 +6,16 @@ using byteBank_Modelos.bytebank.Modelos.ADM.Utilitario;
 
 Console.WriteLine("Boas Vindas ao ByteBank, Atendimento.");
 
-new Atendimento().atendimentoCliente();
+//new Atendimento().atendimentoCliente();
+
+Console.WriteLine(byteBank_gerador.GeradorPix.getChavePix());
+
+var lista = byteBank_gerador.GeradorPix.getChavesPix(10);
+
+foreach (var chave in lista)
+{
+    Console.WriteLine(chave);
+}
 
 public class interne : Funcionario
 {
